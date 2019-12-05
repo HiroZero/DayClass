@@ -1,0 +1,116 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Daytype {
+private:
+string Day;
+
+
+public:
+Daytype();
+void SetDay(string A);
+void PrintDay();
+string ReturnDay();
+string Nextday();
+string PrevDay();
+string calcDay(int d);
+};
+
+int main() {
+
+string input;
+int input2;
+// stamp here
+Daytype theday; //Brick b1;
+
+while (input != "q") {
+
+
+cout << "enter Day: " << endl;
+cin >> input;
+
+theday.SetDay(input); //b1.init()
+
+theday.PrintDay(); //b1.draw()
+
+
+cout << "the day is still" << theday.ReturnDay() << endl;
+
+cout << "the Next day is " << theday.Nextday() << endl;
+
+cout << "the previos day is " << theday.PrevDay() << endl;
+
+cout << "enter days ahead to calculate" << endl;
+cin >> input2;
+cout << "the day from now is " << theday.calcDay(input2) << endl;
+
+
+}
+
+}
+
+Daytype::Daytype() {
+
+Day = "Popcorn!";
+}
+void Daytype::SetDay(string A) {
+Day = A;
+}
+void Daytype::PrintDay() {
+cout << "The Day is " << Day << endl;
+
+}
+string  Daytype::ReturnDay() {
+return Day;
+
+}
+string  Daytype::Nextday() {
+if (Day == "Saturday")
+return "Sunday";
+if (Day == "Sunday")
+return "Monday";
+if (Day == "Monday")
+return "Tuesday";
+if (Day == "Tuesday")
+return "Wensday";
+if (Day == "Wensday")
+return "Thursday";
+if (Day == "Thursday")
+return "Friday";
+if (Day == "Friday")
+return "Saturday";
+}
+string  Daytype::PrevDay() {
+if (Day == "Sunday")
+return "Saturday";
+if (Day == "Saturday")
+return "Friday";
+if (Day == "Friday")
+return "Thursday";
+if (Day == "Thursday")
+return "Wensday";
+if (Day == "Wensday")
+return "Tuesday";
+if (Day == "Tuesday")
+return "Monday";
+if (Day == "Monday")
+return "Sunday";
+}
+string  Daytype::calcDay(int d) {
+d = d % 7;
+if (Day == "Monday" && d == 1)
+return "Tuesday";
+if (Day == "Monday" && d == 2)
+return "Wensday";
+if (Day == "Monday" && d == 3)
+return "Thursday";
+if (Day == "Monday" && d == 4)
+return "Friday";
+//////////////////////////////////////////////////
+if (Day == "Monday" && d == 5)
+return "Saturday";
+if (Day == "Monday" && d == 6)
+return "SundaY";
+
+}
